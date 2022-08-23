@@ -17,6 +17,18 @@ public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Author author;
+
     private String title;
     @Column(length=1000000)
     @Lob
